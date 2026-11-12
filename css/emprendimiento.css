@@ -1,0 +1,64 @@
+/* Header Específico del Formulario */
+.header-formulario { background: var(--navy); color: white; position: relative; overflow: hidden; padding: 55px 20px 95px; text-align: center; }
+.header-formulario::before { content: ""; position: absolute; width: 350px; height: 350px; background: var(--blue); opacity: .08; border-radius: 50%; top: -200px; right: -80px; }
+.header-formulario::after { content: ""; position: absolute; width: 300px; height: 300px; background: var(--green); opacity: .07; border-radius: 50%; bottom: -220px; left: -100px; }
+.header-content { max-width: 850px; margin: auto; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+
+/* Fix del Brand para que no se superponga */
+.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; text-decoration: none; color: inherit; text-align: left; }
+.brand-logo { width: 58px; height: 58px; flex-shrink: 0; object-fit: contain; }
+.brand-name { font-family: var(--fuente-titulos); font-size: 17px; font-weight: 900; letter-spacing: 1.2px; line-height: 1.2; }
+.brand-name span { display: block; color: var(--blue); font-size: 13px; letter-spacing: 2px; margin-top: 3px; }
+
+.eyebrow { display: inline-block; color: var(--green); font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
+.header-formulario h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 900; letter-spacing: -1.8px; line-height: 1.12; margin-bottom: 18px; }
+.header-formulario h1 span { color: var(--green); }
+.header-description { max-width: 580px; margin: auto; font-size: 15px; color: #bdcbd6; }
+.header-line { width: 65px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, var(--green), var(--blue)); margin: 25px auto 0; }
+
+/* Main Formulario */
+.main-formulario { width: min(calc(100% - 30px), 1000px); margin: -45px auto 55px; position: relative; z-index: 2; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: clamp(22px, 4vw, 48px); box-shadow: 0 15px 45px rgba(7,23,39,.07); }
+.intro { margin-bottom: 35px; text-align: center; }
+.intro h2 { font-size: 28px; color: var(--navy); letter-spacing: -.6px; margin-bottom: 7px; font-family: var(--fuente-titulos); }
+.intro p { font-size: 15px; color: var(--muted); }
+.required-info { display: inline-block; margin-top: 13px; font-size: 12px; color: var(--muted); }
+.required { color: #e14b4b; }
+
+/* Grid del Formulario */
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+.form-col { display: flex; flex-direction: column; gap: 30px; min-width: 0; }
+.section { min-width: 0; }
+.section-heading { display: flex; align-items: center; gap: 12px; padding-bottom: 13px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.section-number { width: 32px; height: 32px; border-radius: 9px; background: #eaf8e3; color: var(--green-dark); display: grid; place-items: center; font-size: 13px; font-weight: 900; flex-shrink: 0; }
+.section-heading h3 { font-size: 16px; color: var(--navy); font-family: var(--fuente-titulos); }
+.section-heading p { font-size: 12px; color: var(--muted); }
+
+/* Inputs */
+.grid-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { margin-bottom: 18px; min-width: 0; }
+label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; color: #263747; }
+input, select, textarea { width: 100%; padding: 13px 14px; border: 1px solid #dfe6eb; border-radius: 9px; background: #fbfcfd; color: var(--text); font-family: inherit; font-size: 16px; outline: none; transition: border .2s, box-shadow .2s, background .2s; }
+input:focus, select:focus, textarea:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(7,159,229,.10); }
+input::placeholder, textarea::placeholder { color: #aab5be; }
+select { cursor: pointer; }
+textarea { resize: vertical; min-height: 115px; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* Notice y Botón */
+.notice { display: flex; gap: 15px; align-items: flex-start; padding: 20px; background: #f0f8fd; border: 1px solid #d8edf9; border-radius: 12px; }
+.notice-icon { font-size: 24px; flex-shrink: 0; }
+.notice p { font-size: 14px; color: #466173; line-height: 1.6; }
+.notice strong { color: var(--navy); }
+
+.submit-btn { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; padding: 18px; border: none; border-radius: 12px; background: var(--green); color: var(--navy); font-size: 16px; font-weight: 900; cursor: pointer; transition: .2s; }
+.submit-btn:hover { background: #68ed0c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(89,220,0,.20); }
+.submit-btn:active { transform: scale(.99); }
+.privacy { text-align: center; font-size: 12px; color: var(--muted); margin-top: 15px; }
+
+/* Footer Formulario */
+.footer-formulario { background: var(--navy); color: #aabac8; padding: 32px 20px; text-align: center; }
+.footer-brand { font-weight: 900; font-size: 15px; color: white; margin-bottom: 5px; font-family: var(--fuente-titulos); letter-spacing: 1px; }
+.footer-brand span { color: var(--green); }
+.footer-formulario p { font-size: 12px; }
+.footer-line { height: 3px; width: 45px; margin: 15px auto; border-radius: 10px; background: linear-gradient(90deg, var(--green), var(--blue)); }
