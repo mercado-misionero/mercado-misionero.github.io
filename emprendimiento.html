@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071727">
+<title>Emprendimientos Misioneros</title>
+<meta name="description" content="Presentá tu emprendimiento y formá parte de Emprendimientos Misioneros.">
+<!-- FAVICON USANDO LOGO.SVG -->
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+
+<style>
+:root {
+  --navy: #071727;
+  --navy-light: #10283b;
+  --green: #59dc00;
+  --green-dark: #43b900;
+  --blue: #079fe5;
+  --background: #f5f8fa;
+  --white: #ffffff;
+  --text: #172330;
+  --muted: #758391;
+  --border: #e3e9ee;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, Helvetica, sans-serif; background: var(--background); color: var(--text); line-height: 1.6; }
+
+/* HEADER */
+.header { background: var(--navy); color: white; position: relative; overflow: hidden; padding: 55px 20px 95px; }
+.header::before { content: ""; position: absolute; width: 350px; height: 350px; background: var(--blue); opacity: .08; border-radius: 50%; top: -200px; right: -80px; }
+.header::after { content: ""; position: absolute; width: 300px; height: 300px; background: var(--green); opacity: .07; border-radius: 50%; bottom: -220px; left: -100px; }
+.header-content { max-width: 850px; margin: auto; text-align: center; position: relative; z-index: 1; }
+
+/* BRAND */
+.brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 32px; text-align: left; text-decoration: none; color: inherit;}
+.brand-logo { width: 58px; height: 58px; display: block; flex-shrink: 0; object-fit: contain; }
+.brand-name { font-size: 17px; font-weight: 900; letter-spacing: 1.2px; line-height: 1.2; }
+.brand-name span { display: block; color: var(--blue); font-size: 13px; letter-spacing: 2px; margin-top: 3px; }
+
+/* HERO */
+.eyebrow { display: inline-block; color: var(--green); font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+.header h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 900; letter-spacing: -1.8px; line-height: 1.12; margin-bottom: 18px; }
+.header h1 span { color: var(--green); }
+.header-description { max-width: 580px; margin: auto; font-size: 15px; color: #bdcbd6; }
+.header-line { width: 65px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, var(--green), var(--blue)); margin: 25px auto 0; }
+
+/* MAIN (Aumentamos el ancho máximo para pantallas grandes) */
+main { width: min(100% - 30px, 1000px); margin: -45px auto 55px; position: relative; z-index: 2; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: clamp(22px, 4vw, 48px); box-shadow: 0 15px 45px rgba(7,23,39,.07); }
+.intro { margin-bottom: 35px; text-align: center; }
+.intro h2 { font-size: 28px; color: var(--navy); letter-spacing: -.6px; margin-bottom: 7px; }
+.intro p { font-size: 15px; color: var(--muted); }
+.required-info { display: inline-block; margin-top: 13px; font-size: 12px; color: var(--muted); }
+.required { color: #e14b4b; }
+
+/* ESTRUCTURA EN DOS COLUMNAS PARA PANTALLAS GRANDES */
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+/* SECTIONS */
+.section { margin-bottom: 10px; }
+.section-heading { display: flex; align-items: center; gap: 12px; padding-bottom: 13px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.section-number { width: 32px; height: 32px; border-radius: 9px; background: #eaf8e3; color: var(--green-dark); display: grid; place-items: center; font-size: 13px; font-weight: 900; flex-shrink: 0; }
+.section-heading h3 { font-size: 16px; color: var(--navy); }
+.section-heading p { font-size: 12px; color: var(--muted); }
+
+/* FORM */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { margin-bottom: 18px; min-width: 0; }
+label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; color: #263747; }
+input, select, textarea { width: 100%; padding: 13px 14px; border: 1px solid #dfe6eb; border-radius: 9px; background: #fbfcfd; color: var(--text); font-family: inherit; font-size: 16px; outline: none; transition: border .2s, box-shadow .2s, background .2s; }
+input:focus, select:focus, textarea:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(7,159,229,.10); }
+input::placeholder, textarea::placeholder { color: #aab5be; }
+select { cursor: pointer; }
+textarea { resize: vertical; min-height: 115px; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* NOTICE (Ocupa todo el ancho abajo) */
+.notice-container { grid-column: 1 / -1; margin-top: 10px; }
+.notice { display: flex; gap: 15px; align-items: flex-start; padding: 20px; background: #f0f8fd; border: 1px solid #d8edf9; border-radius: 12px; }
+.notice-icon { font-size: 24px; flex-shrink: 0; }
+.notice p { font-size: 14px; color: #466173; line-height: 1.6; }
+.notice strong { color: var(--navy); }
+
+/* BUTTON (Ocupa todo el ancho abajo) */
+.submit-container { grid-column: 1 / -1; margin-top: 10px; }
+.submit-btn { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; padding: 18px; border: none; border-radius: 12px; background: var(--green); color: var(--navy); font-size: 16px; font-weight: 900; cursor: pointer; transition: .2s; }
+.submit-btn:hover { background: #68ed0c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(89,220,0,.20); }
+.submit-btn:active { transform: scale(.99); }
+.submit-icon { font-size: 20px; }
+.privacy { text-align: center; font-size: 12px; color: var(--muted); margin-top: 15px; }
+
+/* FOOTER */
+footer { background: var(--navy); color: #aabac8; padding: 32px 20px; text-align: center; }
+.footer-brand { font-weight: 900; font-size: 15px; color: white; margin-bottom: 5px; }
+.footer-brand span { color: var(--green); }
+footer p { font-size: 12px; }
+.footer-line { height: 3px; width: 45px; margin: 15px auto; border-radius: 10px; background: linear-gradient(90deg, var(--green), var(--blue)); }
+
+/* RESPONSIVIDAD EXTREMA */
+@media (min-width: 850px) {
+  /* Dos columnas en pantallas grandes */
+  .form-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  
+  /* Hacemos que el nombre y localidad ocupen la misma fila */
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .header { padding: 42px 18px 80px; }
+  .brand { margin-bottom: 27px; }
+  .brand-logo { width: 52px; height: 52px; }
+  .brand-name { font-size: 15px; }
+  .header h1 { font-size: 34px; }
+  .header-description { font-size: 14px; }
+  main { width: calc(100% - 22px); margin-top: -38px; }
+  .card { padding: 24px 18px; border-radius: 14px; }
+  .intro h2 { font-size: 24px; }
+  .grid { grid-template-columns: 1fr; gap: 0; }
+  .notice { flex-direction: column; text-align: center; align-items: center; }
+  .notice p { text-align: left; }
+  .submit-btn { padding: 16px 10px; font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-content">
+    
+    <a href="index.html" class="brand">
+      <img src="logo.svg" alt="Logo de Mercado Misionero" class="brand-logo">
+      <div class="brand-name">
+        MERCADO
+        <span>MISIONERO</span>
+      </div>
+    </a>
+
+    <div class="eyebrow">Una iniciativa de Mercado Misionero</div>
+    <h1>Tu emprendimiento<br>también tiene un lugar <span>acá.</span></h1>
+    <p class="header-description">Queremos conocer lo que hacés y ayudarte a darle visibilidad. Registrá tu emprendimiento y formá parte de una red que conecta y destaca el talento de toda Misiones.</p>
+    <div class="header-line"></div>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <div class="intro">
+      <h2>Presentá tu emprendimiento</h2>
+      <p>Completá tus datos y contanos qué hacés. Nos pondremos en contacto a través de WhatsApp.</p>
+      <span class="required-info">Los campos marcados con <span class="required">*</span> son obligatorios.</span>
+    </div>
+
+    <form id="registrationForm">
+      
+      <!-- CONTENEDOR PRINCIPAL DEL GRID -->
+      <div class="form-grid">
+        
+        <!-- COLUMNA IZQUIERDA: Datos Personales -->
+        <div>
+          <section class="section">
+            <div class="section-heading">
+              <div class="section-number">01</div>
+              <div>
+                <h3>Datos personales</h3>
+                <p>Queremos saber quién está detrás del emprendimiento.</p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="owner">Nombre y apellido <span class="required">*</span></label>
+              <input type="text" id="owner" placeholder="Tu nombre completo" maxlength="100" autocomplete="name" required>
+            </div>
+            <div class="grid">
+              <div class="field">
+                <label for="city">Localidad <span class="required">*</span></label>
+                <input type="text" id="city" placeholder="Ej: Posadas" maxlength="80" required>
+              </div>
+              <div class="field">
+                <label for="phone">Tu WhatsApp <span class="required">*</span></label>
+                <input type="tel" id="phone" placeholder="Ej: 3764 123456" maxlength="25" autocomplete="tel" required>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">
+              <div class="section-number">03</div>
+              <div>
+                <h3>Redes sociales</h3>
+                <p>Opcional: compartí dónde pueden encontrarte.</p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="instagram">Instagram</label>
+              <input type="text" id="instagram" placeholder="@tuemprendimiento o enlace" maxlength="200">
+            </div>
+            <div class="field">
+              <label for="facebook">Facebook / Página web</label>
+              <input type="text" id="facebook" placeholder="Enlace de tu página o sitio web" maxlength="300">
+            </div>
+          </section>
+        </div>
+
+        <!-- COLUMNA DERECHA: Emprendimiento -->
+        <div>
+          <section class="section">
+            <div class="section-heading">
+              <div class="section-number">02</div>
+              <div>
+                <h3>Tu emprendimiento</h3>
+                <p>Contanos sobre tu proyecto, marca o negocio.</p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="business">Nombre del emprendimiento <span class="required">*</span></label>
+              <input type="text" id="business" placeholder="¿Cómo se llama tu emprendimiento?" maxlength="100" required>
+            </div>
+            <div class="field">
+              <label for="category">Rubro o actividad <span class="required">*</span></label>
+              <select id="category" required>
+                <option value="">Seleccioná el rubro</option>
+                <option>Alimentos y gastronomía</option>
+                <option>Indumentaria y accesorios</option>
+                <option>Artesanías y manualidades</option>
+                <option>Belleza y estética</option>
+                <option>Tecnología y electrónica</option>
+                <option>Hogar y decoración</option>
+                <option>Servicios profesionales</option>
+                <option>Servicios generales</option>
+                <option>Comercio y ventas</option>
+                <option>Producción y agricultura</option>
+                <option>Turismo y entretenimiento</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="description">Descripción del emprendimiento <span class="required">*</span></label>
+              <textarea id="description" placeholder="Contanos qué hacés, qué ofrecés y qué te gustaría que las personas conozcan..." maxlength="1200" required></textarea>
+              <div class="hint">Intentá describir tu emprendimiento de la manera más clara posible.</div>
+            </div>
+            <div class="field">
+              <label for="products">Productos o servicios que ofrecés</label>
+              <textarea id="products" placeholder="Podés mencionar tus principales productos o servicios..." maxlength="1000"></textarea>
+            </div>
+          </section>
+        </div>
+
+        <!-- PARTE INFERIOR (Ocupa todo el ancho) -->
+        <div class="notice-container">
+          <div class="notice">
+            <div class="notice-icon">📸</div>
+            <p>
+              <strong>¿Qué sucede después?</strong><br>
+              Al enviar el formulario se abrirá WhatsApp con toda tu información. 
+              <strong>Es indispensable que adjuntes al menos una foto de tu emprendimiento en el chat de WhatsApp</strong>, ya que es un requisito obligatorio para poder publicarte. 
+              Revisaremos tu solicitud y, si corresponde, nos pondremos en contacto para coordinar la difusión.
+            </p>
+          </div>
+        </div>
+
+        <div class="submit-container">
+          <button type="submit" class="submit-btn">
+            <span class="submit-icon">➤</span>
+            Enviar inscripción por WhatsApp
+          </button>
+          <p class="privacy">
+            Enviar la solicitud no garantiza la publicación.
+            Todas las inscripciones están sujetas a revisión.
+          </p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-brand">MERCADO <span>MISIONERO</span></div>
+  <div class="footer-line"></div>
+  <p>Conectando personas, ideas y emprendimientos de toda Misiones.</p>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "5493765168963";
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+
+  const get = id => document.getElementById(id).value.trim();
+  const owner = get("owner");
+  const city = get("city");
+  const phone = get("phone");
+  const business = get("business");
+  const category = get("category");
+  const description = get("description");
+  const products = get("products");
+  const instagram = get("instagram");
+  const facebook = get("facebook");
+
+  const message = `
+🌱 *NUEVA INSCRIPCIÓN*
+*EMPRENDIMIENTOS MISIONEROS*
+━━━━━━━━━━━━━━━━━━
+👤 *DATOS DEL EMPRENDEDOR*
+Nombre: ${owner}
+Localidad: ${city}
+WhatsApp: ${phone}
+━━━━━━━━━━━━━━━━━━
+🏪 *DATOS DEL EMPRENDIMIENTO*
+Nombre: ${business}
+Rubro: ${category}
+Descripción:
+${description}
+Productos / Servicios:
+${products || "No especificado"}
+━━━━━━━━━━━━━━━━━━
+📱 *REDES SOCIALES*
+Instagram: ${instagram || "No especificado"}
+Facebook / Web: ${facebook || "No especificado"}
+━━━━━━━━━━━━━━━━━━
+⚠️ *RECORDATORIO:* No olvides enviar una foto de tu emprendimiento por este medio para poder publicarte.
+  `.trim();
+
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.location.href = url;
+});
+</script>
+</body>
+</html>
