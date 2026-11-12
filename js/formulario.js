@@ -48,7 +48,7 @@ Facebook / Web: ${facebook || "No especificado"}
 ⚠️ *RECORDATORIO:* No olvides enviar una foto de tu emprendimiento por este medio para poder publicarte.
     `.trim();
 
-    // Redireccionar
+    // Redireccionar a WhatsApp
     const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
     window.location.href = url;
   });

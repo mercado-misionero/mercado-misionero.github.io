@@ -28,8 +28,9 @@
   .descargo-grid { grid-template-columns: repeat(2, 1fr); }
   .seccion-emprendimiento { flex-direction: column; text-align: center; gap: 24px; }
   .seccion-emprendimiento p { margin-inline: auto; }
+  
+  /* Centrado del Hero */
   .hero h1, .hero-bajada { text-align: center; margin-inline: auto; }
-  .hero-acciones { justify-content: center; }
   .hero-sellos { justify-content: center; }
 }
 
@@ -59,9 +60,20 @@
   .nav .btn-grupo .etiqueta-larga { display: inline; }
   .nav .btn-grupo .etiqueta-corta { display: none; }
 
+  /* === CORRECCIÓN DEL HERO EN MÓVIL === */
+  .hero-acciones { 
+    flex-direction: column; 
+    align-items: center;
+    gap: 12px; 
+    width: 100%;
+  }
+  .hero-acciones .btn { 
+    width: 100%; 
+    max-width: 100%; 
+    padding: 14px 20px;
+  }
+
   /* Layout General */
-  .hero-acciones { flex-direction: column; gap: 12px; }
-  .hero-acciones .btn { width: 100%; max-width: 320px; }
   .grid-5 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .cta-final { padding: 32px 20px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }

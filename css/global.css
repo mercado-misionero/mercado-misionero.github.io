@@ -47,7 +47,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 18px); }
 .marca-texto span { font-size: .65rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); opacity: .9; }
 
 /* Botones */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-family: var(--fuente-texto); font-weight: 600; font-size: .95rem; padding: 14px 24px; border-radius: var(--radio); border: 1px solid transparent; cursor: pointer; transition: .2s; text-align: center; text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-family: var(--fuente-texto); font-weight: 600; font-size: .95rem; padding: 14px 24px; border-radius: var(--radio); border: 1px solid transparent; cursor: pointer; transition: .2s; text-align: center; text-decoration: none; white-space: normal; word-break: break-word; }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 .btn-primario { background: var(--green); color: var(--navy); box-shadow: 0 3px 12px rgba(89,220,0,.24); font-weight: 700; }
 .btn-primario:hover { background: var(--green-dark); transform: translateY(-1px); }
